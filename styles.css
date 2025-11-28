@@ -1,0 +1,77 @@
+/* Genereller Layout-Container, um Bild und Ergebnisse nebeneinander zu halten */
+body {
+    font-family: Arial, sans-serif;
+    display: flex; /* Erlaubt die Nebeneinanderstellung */
+    gap: 30px; /* Abstand zwischen Bild und Liste */
+    padding: 20px;
+}
+
+.image-container {
+    position: relative; /* Wichtig: Definiert den Referenzpunkt für die Overlays */
+    display: inline-block; /* Passt die Größe an das Bild an */
+    max-width: 60%; /* Begrenzt die Bildgröße */
+    border: 1px solid #ccc; /* Optische Trennung */
+}
+
+#targetImage {
+    display: block;
+    max-width: 100%; /* Stellt sicher, dass das Bild auf den Bildschirm passt */
+    height: auto;
+}
+
+.overlay-box {
+    position: absolute; /* Wichtig: Positioniert die Boxen relativ zum Container */
+    border: 2px solid rgb(28, 23, 23);
+    color: rgb(20, 4, 4);
+    background-color: rgba(223, 102, 102, 0.174); /* Leichte Transparenz */
+    font-size: 14px;
+    padding: 2px 5px;
+    pointer-events: none; /* Macht das Kästchen "durchklickbar" */
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Leichter Schatten, um es hervorzuheben */
+}
+
+/* Styling für den Label-Text */
+.overlay-label {
+    position: absolute;
+    /* Damit der Text über dem Bild und der Box liegt */
+    z-index: 20; 
+    
+    color: white; /* Weißer Text für Kontrast */
+    background-color: rgba(0, 0, 0, 0.8); /* Schwarzer, halbdurchsichtiger Hintergrund */
+    padding: 1px 6px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 1; 
+    border-radius: 3px;
+}
+
+/* NEU: Styling für die Ergebnisliste */
+#results-container {
+    max-width: 35%;
+    padding: 10px;
+    border-left: 1px solid #eee;
+}
+
+#labels-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#labels-list li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 14px;
+}
+
+#loading-spinner {
+    font-size: 16px;
+    color: #007bff; /* Blaue Farbe */
+    margin-left: 10px;
+    display: inline-block;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

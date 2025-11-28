@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>KI Bild-Overlay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <button id="analyse-button" onclick="startAnalysis()">Analyse starten (Automatisch)</button>
+    <span id="loading-status" style="display: none;">
+        <span id="loading-spinner">⚙️ Lade...</span>
+    </span>
+
+    <div style="display: flex; gap: 30px; margin-top: 20px;">
+        
+        <div id="imageContainer" class="image-container">
+            <img id="targetImage" src="" alt="Bild zur Analyse">
+        </div>
+
+        <div id="results-container">
+            <h2>Analyse-Ergebnisse</h2>
+            <p id="image-key-display">Aktuelles Bild: Warten auf Start...</p>
+            <ul id="labels-list">
+                <li>Bitte klicken Sie auf den Button, um die Analyse zu starten.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
